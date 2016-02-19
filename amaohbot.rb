@@ -11,7 +11,7 @@ client = Twitter::REST::Client.new(
 
 now = Time.now
 since = Time.local(2016, 2, 18)
-day = (now - since).div(60*60*24) + 12
+day = (now - since).div(60*60*24) + 1
 # p day
 
 # get = client.user()
