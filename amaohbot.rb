@@ -18,5 +18,5 @@ day = (now - since).div(60*60*24) + 12
 # p get
 rep = "あまおうリキュールDay#{day}"
 client.update_profile({name: rep})
-print("update name \'#{get}\' to \'#{rep}\'\n")
-# print("update name to \'#{rep}\'\n")
+# print("update name \'#{get}\' to \'#{rep}\'\n")
+print("update name to \'#{rep}\'\n")
