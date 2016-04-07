@@ -19,8 +19,9 @@ jinbunto = Time.local(2016, 4, 14)
 # get = client.user()
 # p get
 rep = "あまおうリキュールDay#{day}"
-if((now - jinbunfrom) >= 0 && (now - jinbunto) >= 60*60*24)
+if (jinbunfrom - now) <= 0 && (jinbunto - now) >= 60*60*24
 	rep = "人文・社会科学科目履修登録"
+end
 client.update_profile({name: rep})
 # print("update name \'#{get}\' to \'#{rep}\'\n")
 print("update name to \'#{rep}\'\n")
