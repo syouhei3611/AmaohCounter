@@ -1,6 +1,8 @@
 # coding: utf-8
 
 require 'twitter'
+require 'clockwork'
+include Clockwork
 
 client = Twitter::REST::Client.new(
 	consumer_key:		 ENV['TWITTER_CONSUMER_KEY'],
@@ -23,6 +25,11 @@ rep = "あまおうリキュールDay#{day}"
 if (now - rishufrom) >= 0 && (now - rishuto) <= 60*60*24
 	rep = "履修登録残り#{rishuday}日"
 end
-client.update_profile({name: rep})
-# print("update name \'#{get}\' to \'#{rep}\'\n")
-print("update name to \'#{rep}\'\n")
+
+handler do |job|
+	client.update_profile({name: rep})
+	# print("update name \'#{get}\' to \'#{rep}\'\n")
+	print("update name to \'#{rep}\'\n")
+end
+
+every(1.day, 'update.job', :at => '00:00')
