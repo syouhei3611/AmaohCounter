@@ -13,14 +13,15 @@ now = Time.now
 since = Time.local(2016, 2, 18)
 day = (now - since).div(60*60*24) + 1
 # p day
-jinbunfrom = Time.local(2016, 4, 8)
-jinbunto = Time.local(2016, 4, 14)
+rishufrom = Time.local(2016, 4, 18)
+rishuto = Time.local(2016, 4, 28)
+rishuday = (to - now).div(60*60*24) + 1
 
 # get = client.user()
 # p get
 rep = "あまおうリキュールDay#{day}"
-if (jinbunfrom - now) <= 0 && (jinbunto - now) >= 60*60*24
-	rep = "人文・社会科学科目履修登録"
+if (now - rishufrom) >= 0 && (now - rishuto) <= 60*60*24
+	rep = "履修登録残り#{rishuday}日"
 end
 client.update_profile({name: rep})
 # print("update name \'#{get}\' to \'#{rep}\'\n")
