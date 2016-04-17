@@ -17,7 +17,7 @@ day = (now - since).div(60*60*24) + 1
 # p day
 rishufrom = Time.local(2016, 4, 18)
 rishuto = Time.local(2016, 4, 28)
-rishuday = (to - now).div(60*60*24) + 1
+rishuday = (rishuto - now).div(60*60*24) + 1
 
 # get = client.user()
 # p get
