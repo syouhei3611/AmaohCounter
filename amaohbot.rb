@@ -25,11 +25,6 @@ rep = "あまおうリキュールDay#{day}"
 if (now - rishufrom) >= 0 && (now - rishuto) <= 60*60*24
 	rep = "履修登録残り#{rishuday}日"
 end
-
-handler do |job|
-	client.update_profile({name: rep})
-	# print("update name \'#{get}\' to \'#{rep}\'\n")
-	print("update name to \'#{rep}\'\n")
-end
-
-every(1.day, 'update.job', :at => '00:00')
+client.update_profile({name: rep})
+# print("update name \'#{get}\' to \'#{rep}\'\n")
+print("update name to \'#{rep}\'\n")
