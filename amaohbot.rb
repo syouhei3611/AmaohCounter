@@ -11,18 +11,19 @@ client = Twitter::REST::Client.new(
 	access_token_secret: ENV['TWITTER_ACCESS_TOKEN_SECRET']
 )
 
+aday = 60*60*24
 now = Time.now
 since = Time.local(2016, 2, 18)
-day = (now - since).div(60*60*24) + 1
+days = (now - since).div(aday) + 1
 # p day
 rishufrom = Time.local(2016, 4, 18)
 rishuto = Time.local(2016, 4, 28)
-rishuday = (to - now).div(60*60*24) + 1
+rishuday = (rishuto - now).div(aday) + 1
 
 # get = client.user()
 # p get
-rep = "あまおうリキュールDay#{day}"
-if (now - rishufrom) >= 0 && (now - rishuto) <= 60*60*24
+rep = "あまおうリキュールDay#{days}"
+if (now - rishufrom) >= 0 && (now - rishuto) <= aday
 	rep = "履修登録残り#{rishuday}日"
 end
 client.update_profile({name: rep})
