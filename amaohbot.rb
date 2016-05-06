@@ -23,7 +23,7 @@ rishuday = (rishuto - now).div(aday) + 1
 # get = client.user()
 # p get
 rep = "あまおうリキュールDay#{days}"
-if (now - rishufrom) >= 0 && (now - rishuto) <= aday
+if (now - rishufrom) >= 0 && rishuday >= 0
 	rep = "履修登録残り#{rishuday}日"
 end
 client.update_profile({name: rep})
